@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../widgets/background.dart';
 import './category_screen.dart';
-import '../constants.dart';
 
 class WelcomeScreen extends StatelessWidget {
   // static const routeName = '/welcome';
@@ -15,11 +14,11 @@ class WelcomeScreen extends StatelessWidget {
         children: [
           Center(
             child: Padding(
-              padding: const EdgeInsets.all(kDefaultPadding),
+              padding: const EdgeInsets.all(20),
               child: Text(
                 'Welcome to the dark side',
                 style: TextStyle(
-                  color: kTextColor,
+                  color: Theme.of(context).primaryColor,
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
                 ),
@@ -28,7 +27,9 @@ class WelcomeScreen extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(
-                vertical: kDefaultPadding, horizontal: kDefaultPadding / 2),
+              vertical: 20,
+              horizontal: 10,
+            ),
             child: TextButton(
               child: Text(
                 'Next',
