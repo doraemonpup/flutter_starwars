@@ -20,7 +20,9 @@ class Background extends StatelessWidget {
                 Colors.black.withOpacity(0.75), BlendMode.dstATop),
           ),
         ),
-        child: child,
+        child: SafeArea(
+          child: child,
+        ),
       ),
     );
   }

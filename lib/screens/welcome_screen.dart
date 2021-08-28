@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/background.dart';
+import './category_screen.dart';
 import '../constants.dart';
 
 class WelcomeScreen extends StatelessWidget {
-  static const routeName = '/welcome';
+  // static const routeName = '/welcome';
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,9 @@ class WelcomeScreen extends StatelessWidget {
                 'Next',
                 style: TextStyle(fontSize: 20),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed(CategoryScreen.routeName);
+              },
             ),
           ),
         ],
