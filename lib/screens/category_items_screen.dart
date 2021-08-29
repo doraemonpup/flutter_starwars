@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import '../widgets/background.dart';
-// import '../models/people.dart';
 
 class CategoryItemsScreen extends StatefulWidget {
   static const routeName = '/category-items';
@@ -14,12 +13,13 @@ class CategoryItemsScreen extends StatefulWidget {
 }
 
 class _CategoryItemsScreenState extends State<CategoryItemsScreen> {
-  var data, routeArgs;
+  var data, routeArgs, category;
 
   @override
   void didChangeDependencies() {
     routeArgs = ModalRoute.of(context).settings.arguments;
-    fetchData(routeArgs['category']).then((val) {
+    category = routeArgs['category'];
+    fetchData(category).then((val) {
       setState(() {
         data = val;
       });
@@ -45,24 +45,33 @@ class _CategoryItemsScreenState extends State<CategoryItemsScreen> {
             )
           : ListView.builder(
               itemCount: data.length,
-              itemBuilder: (ctx, i) => ListTile(
-                leading: CircleAvatar(
-                  backgroundColor:
-                      Theme.of(context).primaryColor.withAlpha(112),
-                  child: Text(
-                    data[i]['gender'] == 'male' ? 'M' : 'F',
-                    style: TextStyle(color: Theme.of(context).primaryColor),
+              itemBuilder: (ctx, i) => Card(
+                // elevation: 0,
+                color: Colors.transparent,
+                shadowColor: Colors.white10,
+                child: ListTile(
+                  leading: CircleAvatar(
+                    backgroundColor:
+                        Theme.of(context).primaryColor.withAlpha(72),
+                    child: Text(
+                      (i + 1).toString(),
+                      style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    ),
                   ),
+                  title: Text(
+                    data[i]['name'],
+                    style: TextStyle(
+                      color: Theme.of(context).primaryColor,
+                    ),
+                  ),
+                  trailing: Icon(
+                    Icons.chevron_right,
+                    color: Theme.of(context).primaryColor,
+                  ),
+                  onTap: () {},
                 ),
-                title: Text(
-                  data[i]['name'] != null ? data[i]['name'] : 'No Data Found',
-                  style: TextStyle(color: Theme.of(context).accentColor),
-                ),
-                subtitle: Text(
-                  'Birth Year: ${data[i]['birth_year']}',
-                  style: TextStyle(color: Theme.of(context).primaryColor),
-                ),
-                onTap: () {},
               ),
             ),
     );
