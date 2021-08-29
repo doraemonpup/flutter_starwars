@@ -4,17 +4,14 @@ import '../screens/category_items_screen.dart';
 
 class CategoryItem extends StatelessWidget {
   final String title;
-  final String link;
 
   CategoryItem({
     this.title,
-    this.link,
   });
 
   void _selectCategory(BuildContext context) {
     Navigator.of(context).pushNamed(CategoryItemsScreen.routeName, arguments: {
       'title': title,
-      'link': link,
     });
   }
 

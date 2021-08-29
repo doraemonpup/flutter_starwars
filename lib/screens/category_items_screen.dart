@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import '../widgets/background.dart';
-import '../models/people.dart';
+// import '../models/people.dart';
 
 class CategoryItemsScreen extends StatefulWidget {
   static const routeName = '/category-items';
@@ -14,20 +14,22 @@ class CategoryItemsScreen extends StatefulWidget {
 }
 
 class _CategoryItemsScreenState extends State<CategoryItemsScreen> {
+  var data, routeArgs;
+
   @override
-  void initState() {
-    super.initState();
-    fetchPeople().then((value) {
+  void didChangeDependencies() {
+    routeArgs = ModalRoute.of(context).settings.arguments;
+    fetchPeople(routeArgs['title']).then((val) {
       setState(() {
-        data = value;
+        data = val;
       });
     });
+    super.didChangeDependencies();
   }
 
-  var data;
-  fetchPeople() async {
-    final url = Uri.parse(
-        'https://swapi.dev/api/people/'); //TODO: change to dynamic URL
+  fetchPeople(String category) async {
+    final url = Uri.parse('https://swapi.dev/api/$category/');
+    print(url);
     final response = await http.get(url);
     if (response.statusCode == 200) {
       data = json.decode(response.body)['results'];
@@ -36,8 +38,6 @@ class _CategoryItemsScreenState extends State<CategoryItemsScreen> {
   }
 
   Widget build(BuildContext context) {
-    // print(data);
-    // print(data.length);
     // return Background(
     //   child: FutureBuilder(
     //     future: fetchPeople(),
@@ -95,13 +95,14 @@ class _CategoryItemsScreenState extends State<CategoryItemsScreen> {
                   ),
                 ),
                 title: Text(
-                  data[i]['name'],
+                  data[i]['name'] != null ? data[i]['name'] : 'No Data Found',
                   style: TextStyle(color: Theme.of(context).primaryColor),
                 ),
                 subtitle: Text(
                   'Birth Year: ${data[i]['birth_year']}',
                   style: TextStyle(color: Theme.of(context).accentColor),
                 ),
+                onTap: () {},
               ),
             ),
     );
