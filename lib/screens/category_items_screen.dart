@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import '../widgets/background.dart';
-import '../widgets/category_item_item.dart';
+import '../widgets/category_item_card.dart';
 
 class CategoryItemsScreen extends StatefulWidget {
   static const routeName = '/category-items';
@@ -46,9 +46,10 @@ class _CategoryItemsScreenState extends State<CategoryItemsScreen> {
             )
           : ListView.builder(
               itemCount: data.length,
-              itemBuilder: (ctx, i) => ItemCard(
+              itemBuilder: (ctx, i) => CategoryItemCard(
                 id: i,
                 name: data[i]['name'],
+                category: category,
               ),
             ),
     );
