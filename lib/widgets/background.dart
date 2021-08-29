@@ -17,7 +17,7 @@ class Background extends StatelessWidget {
             image: AssetImage('assets/images/bg.jpg'),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
-                Colors.black.withOpacity(0.75), BlendMode.dstATop),
+                Colors.black.withOpacity(0.55), BlendMode.dstATop),
           ),
         ),
         child: SafeArea(
