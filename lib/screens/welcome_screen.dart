@@ -13,16 +13,23 @@ class WelcomeScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Center(
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Text(
-                'Welcome to the dark side',
-                style: TextStyle(
-                  color: Theme.of(context).primaryColor,
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 20,
+                  ),
+                  child: Image.asset('assets/images/logo.png'),
                 ),
-              ),
+                Text(
+                  'Welcome to the dark side',
+                  style: TextStyle(
+                    color: Theme.of(context).primaryColor,
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
             ),
           ),
           Padding(
@@ -30,10 +37,20 @@ class WelcomeScreen extends StatelessWidget {
               vertical: 20,
               horizontal: 10,
             ),
-            child: TextButton(
-              child: Text(
-                'Next',
-                style: TextStyle(fontSize: 20),
+            child: OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                  side: BorderSide(
+                    color: Theme.of(context).primaryColor,
+                  ),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30))),
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
+                child: Text(
+                  'Next',
+                  style: TextStyle(fontSize: 20),
+                ),
               ),
               onPressed: () {
                 Navigator.of(context).pushNamed(CategoryScreen.routeName);
