@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import '../screens/category_items_screen.dart';
 
 class CategoryItem extends StatelessWidget {
-  final String title;
+  final String category;
 
   CategoryItem({
-    this.title,
+    this.category,
   });
 
   void _selectCategory(BuildContext context) {
     Navigator.of(context).pushNamed(CategoryItemsScreen.routeName, arguments: {
-      'title': title,
+      'category': category,
     });
   }
 
@@ -23,7 +23,7 @@ class CategoryItem extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.all(15),
         child: Text(
-          title.toUpperCase(),
+          category.toUpperCase(),
           style: TextStyle(color: Theme.of(context).primaryColor),
         ),
         decoration: BoxDecoration(
