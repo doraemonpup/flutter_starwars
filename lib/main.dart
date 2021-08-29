@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 import './screens/welcome_screen.dart';
-import './screens/category_screen.dart';
+import './screens/categories_screen.dart';
+import './screens/category_items_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -34,8 +35,8 @@ class MyApp extends StatelessWidget {
       ),
       home: WelcomeScreen(),
       routes: {
-        // WelcomeScreen.routeName: (ctx) => WelcomeScreen(),
         CategoryScreen.routeName: (ctx) => CategoryScreen(),
+        CategoryItemsScreen.routeName: (ctx) => CategoryItemsScreen(),
       },
     );
   }

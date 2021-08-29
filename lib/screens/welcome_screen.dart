@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/background.dart';
-import './category_screen.dart';
+import './categories_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   // static const routeName = '/welcome';

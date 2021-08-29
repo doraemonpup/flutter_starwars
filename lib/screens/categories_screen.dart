@@ -15,7 +15,6 @@ class CategoryScreen extends StatelessWidget {
         children: CATEGORIES
             .map(
               (catData) => CategoryItem(
-                id: catData.id,
                 title: catData.title,
                 link: catData.link,
               ),

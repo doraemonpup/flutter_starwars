@@ -1,15 +1,22 @@
 import 'package:flutter/material.dart';
 
+import '../screens/category_items_screen.dart';
+
 class CategoryItem extends StatelessWidget {
-  final String id;
   final String title;
   final String link;
 
   CategoryItem({
-    this.id,
     this.title,
     this.link,
   });
+
+  void _selectCategory(BuildContext context) {
+    Navigator.of(context).pushNamed(CategoryItemsScreen.routeName, arguments: {
+      'title': title,
+      'link': link,
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +41,7 @@ class CategoryItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
         ),
       ),
-      onTap: () {},
+      onTap: () => _selectCategory(context),
     );
   }
 }
