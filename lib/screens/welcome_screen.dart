@@ -24,7 +24,6 @@ class WelcomeScreen extends StatelessWidget {
                 Text(
                   'Welcome to the dark side',
                   style: TextStyle(
-                    color: Theme.of(context).primaryColor,
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
                   ),
@@ -39,14 +38,19 @@ class WelcomeScreen extends StatelessWidget {
             ),
             child: OutlinedButton(
               style: OutlinedButton.styleFrom(
-                  side: BorderSide(
-                    color: Theme.of(context).primaryColor,
-                  ),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30))),
+                side: BorderSide(
+                  // border color
+                  color: Theme.of(context).primaryColor,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+              ),
               child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 8.0,
+                  horizontal: 20,
+                ),
                 child: Text(
                   'Next',
                   style: TextStyle(fontSize: 20),

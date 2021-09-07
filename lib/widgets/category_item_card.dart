@@ -31,9 +31,6 @@ class CategoryItemCard extends StatelessWidget {
           backgroundColor: Theme.of(context).primaryColor.withAlpha(72),
           child: Text(
             (id + 1).toString(),
-            style: TextStyle(
-              color: Theme.of(context).primaryColor,
-            ),
           ),
         ),
         title: Text(

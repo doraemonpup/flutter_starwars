@@ -29,18 +29,21 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
   fetchData(String category, int id) async {
     final url = Uri.parse('https://swapi.dev/api/$category/$id');
     final response = await http.get(url);
-    print(url);
-    print(response.body);
     if (response.statusCode == 200) {
-      data = json.decode(response.body)['results'];
+      data = json.decode(response.body);
       return data;
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    print('from build function ===> \n$data');
     return Background(
-      child: Text('Item detail screen'),
+      child: Center(
+        child: data == null
+            ? CircularProgressIndicator()
+            : Text('Data are loaded'),
+      ),
     );
   }
 }

@@ -24,13 +24,15 @@ class CategoryItem extends StatelessWidget {
         padding: EdgeInsets.all(15),
         child: Text(
           category.toUpperCase(),
-          style: TextStyle(color: Theme.of(context).primaryColor),
+          style: TextStyle(
+            fontSize: 16,
+          ),
         ),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Colors.white.withOpacity(0.1),
-              Colors.black.withOpacity(0.5),
+              Colors.black.withOpacity(0.2),
+              Colors.white.withOpacity(0.4),
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,

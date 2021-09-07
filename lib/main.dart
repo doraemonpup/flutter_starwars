@@ -11,7 +11,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
-  static Map<int, Color> color = {
+  static Map<int, Color> whiteColor = {
     50: Color.fromRGBO(252, 253, 253, .1),
     100: Color.fromRGBO(252, 253, 253, .2),
     200: Color.fromRGBO(252, 253, 253, .3),
@@ -30,8 +30,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'SWAPI',
       theme: ThemeData(
-        primarySwatch: MaterialColor(0xFFFCFDFD, color),
+        primarySwatch: MaterialColor(0xFFFCFDFD, whiteColor),
         accentColor: Colors.amberAccent,
+        textTheme: TextTheme(
+          bodyText2: TextStyle(
+            color: Color.fromRGBO(252, 253, 253, 1),
+          ),
+        ),
         fontFamily: 'Poppins',
       ),
       home: WelcomeScreen(),
