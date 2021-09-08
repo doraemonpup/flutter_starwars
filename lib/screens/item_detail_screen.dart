@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 
 import '../widgets/background.dart';
 import '../widgets/header.dart';
+import '../widgets/detail_item.dart';
 
 class ItemDetailScreen extends StatefulWidget {
   static const routeName = '/item-detail';
@@ -19,9 +20,9 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
   @override
   void didChangeDependencies() {
     routeArgs = ModalRoute.of(context).settings.arguments;
-    fetchData(routeArgs['category'], routeArgs['id'] + 1).then((val) {
+    fetchData(routeArgs['category'], routeArgs['id'] + 1).then((data) {
       setState(() {
-        data = val;
+        data = data;
       });
     });
     super.didChangeDependencies();
@@ -59,11 +60,11 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var keyList = [];
-    var valueList = [];
+    var kList = [];
+    var valList = [];
     if (data != null) {
-      data.forEach((key, value) => keyList.add(key));
-      data.forEach((key, value) => valueList.add(value));
+      data.forEach((key, value) => kList.add(key));
+      data.forEach((key, value) => valList.add(value));
     }
 
     return Background(
@@ -72,35 +73,14 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
           : Align(
               child: Column(
                 children: [
-                  Header(valueList[0]),
+                  Header(valList[0]),
                   Expanded(
                     child: ListView.builder(
                       itemCount: 8,
                       itemBuilder: (ctx, i) {
-                        return Container(
-                          margin: EdgeInsets.symmetric(
-                            horizontal: 16,
-                            vertical: 12,
-                          ),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                flex: 1,
-                                child: Text(
-                                  keyList[i],
-                                  style: TextStyle(fontSize: 16),
-                                ),
-                              ),
-                              SizedBox(width: 20),
-                              Expanded(
-                                flex: 2,
-                                child: Text(
-                                  valueList[i],
-                                  style: TextStyle(fontSize: 16),
-                                ),
-                              ),
-                            ],
-                          ),
+                        return DetailItem(
+                          kList[i],
+                          valList[i],
                         );
                       },
                     ),
