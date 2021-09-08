@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import '../widgets/background.dart';
+import './category_items_screen.dart';
 
 class ItemDetailScreen extends StatefulWidget {
   static const routeName = '/item-detail';
@@ -32,6 +33,27 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
     if (response.statusCode == 200) {
       data = json.decode(response.body);
       return data;
+    } else if (response.statusCode == 404) {
+      showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: Text('Error'),
+              content: Text('Not found!'),
+              actions: [
+                TextButton(
+                  child: Text('Ok'),
+                  style: TextButton.styleFrom(
+                    primary: Colors.black,
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                    Navigator.pop(context);
+                  },
+                ),
+              ],
+            );
+          });
     }
   }
 
@@ -55,13 +77,17 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
                 itemCount: 8,
                 itemBuilder: (ctx, i) {
                   return Container(
-                    margin: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                    margin: EdgeInsets.symmetric(
+                      horizontal: 25,
+                      vertical: 10,
+                    ),
                     child: Row(
                       children: [
                         Expanded(
                           flex: 1,
                           child: Text(
                             keyList[i],
+                            style: TextStyle(fontSize: 16),
                           ),
                         ),
                         SizedBox(width: 20),
@@ -69,6 +95,7 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
                           flex: 2,
                           child: Text(
                             valueList[i],
+                            style: TextStyle(fontSize: 16),
                           ),
                         ),
                       ],
