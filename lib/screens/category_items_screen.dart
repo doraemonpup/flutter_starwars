@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import '../widgets/background.dart';
+import '../widgets/header.dart';
 import '../widgets/category_item_card.dart';
 
 class CategoryItemsScreen extends StatefulWidget {
@@ -44,13 +45,20 @@ class _CategoryItemsScreenState extends State<CategoryItemsScreen> {
           ? Center(
               child: CircularProgressIndicator(),
             )
-          : ListView.builder(
-              itemCount: data.length,
-              itemBuilder: (ctx, i) => CategoryItemCard(
-                id: i,
-                name: data[i]['name'],
-                category: category,
-              ),
+          : Column(
+              children: [
+                Header('$category Items'),
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: data.length,
+                    itemBuilder: (ctx, i) => CategoryItemCard(
+                      id: i,
+                      name: data[i]['name'],
+                      category: category,
+                    ),
+                  ),
+                ),
+              ],
             ),
     );
   }

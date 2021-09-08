@@ -16,10 +16,14 @@ class WelcomeScreen extends StatelessWidget {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 20,
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: Text(
+                    'SWAPI',
+                    style: TextStyle(
+                      fontSize: 48,
+                      color: Theme.of(context).accentColor,
+                    ),
                   ),
-                  child: Image.asset('assets/images/logo.png'),
                 ),
                 Text(
                   'Welcome to the dark side',

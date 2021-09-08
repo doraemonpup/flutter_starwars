@@ -21,7 +21,7 @@ class CategoryItem extends StatelessWidget {
       splashColor: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(15),
       child: Container(
-        padding: EdgeInsets.all(15),
+        padding: const EdgeInsets.all(15),
         child: Text(
           category.toUpperCase(),
           style: TextStyle(
@@ -31,8 +31,8 @@ class CategoryItem extends StatelessWidget {
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Colors.white.withOpacity(0.4),
               Colors.black.withOpacity(0.4),
+              Colors.white.withOpacity(0.3),
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
