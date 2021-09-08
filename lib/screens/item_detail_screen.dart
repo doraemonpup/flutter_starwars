@@ -37,13 +37,46 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print('from build function ===> \n$data');
+    var keyList = [];
+    var valueList = [];
+    if (data != null) {
+      data.forEach((key, value) => keyList.add(key));
+      data.forEach((key, value) => valueList.add(value));
+    }
+
     return Background(
-      child: Center(
-        child: data == null
-            ? CircularProgressIndicator()
-            : Text('Data are loaded'),
-      ),
+      child: data == null
+          ? Center(child: CircularProgressIndicator())
+          : Align(
+              // height: double.infinity,
+              // width: double.infinity,
+              // alignment: Alignment.center,
+              child: ListView.builder(
+                itemCount: 8,
+                itemBuilder: (ctx, i) {
+                  return Container(
+                    margin: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: Text(
+                            keyList[i],
+                          ),
+                        ),
+                        SizedBox(width: 20),
+                        Expanded(
+                          flex: 2,
+                          child: Text(
+                            valueList[i],
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ),
     );
   }
 }
