@@ -2,7 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../widgets/background.dart';
 import '../widgets/category_item.dart';
-import '../categories_data.dart';
+
+const CATEGORIES = const [
+  'people',
+  'planets',
+  'species',
+  'vehicles',
+  'starships',
+];
 
 class CategoryScreen extends StatelessWidget {
   static const routeName = '/category';
