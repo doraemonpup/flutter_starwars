@@ -13,8 +13,6 @@ const CATEGORIES = const [
 ];
 
 class CategoryScreen extends StatelessWidget {
-  static const routeName = '/category';
-
   @override
   Widget build(BuildContext context) {
     return Background(

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../widgets/background.dart';
 import './categories_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
-  // static const routeName = '/welcome';
-
   @override
   Widget build(BuildContext context) {
     return Background(
@@ -61,7 +60,7 @@ class WelcomeScreen extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                Navigator.of(context).pushNamed(CategoryScreen.routeName);
+                Get.to(() => CategoryScreen());
               },
             ),
           ),

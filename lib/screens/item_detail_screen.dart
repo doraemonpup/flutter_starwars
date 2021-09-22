@@ -2,25 +2,23 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:get/get.dart';
 
 import '../widgets/background.dart';
 import '../widgets/header.dart';
 import '../widgets/detail_item.dart';
 
 class ItemDetailScreen extends StatefulWidget {
-  static const routeName = '/item-detail';
-
   @override
   _ItemDetailScreenState createState() => _ItemDetailScreenState();
 }
 
 class _ItemDetailScreenState extends State<ItemDetailScreen> {
-  var data, routeArgs;
+  var data;
 
   @override
   void didChangeDependencies() {
-    routeArgs = ModalRoute.of(context).settings.arguments;
-    fetchData(routeArgs['category'], routeArgs['id'] + 1).then((data) {
+    fetchData(Get.arguments['category'], Get.arguments['id'] + 1).then((data) {
       setState(() {
         data = data;
       });

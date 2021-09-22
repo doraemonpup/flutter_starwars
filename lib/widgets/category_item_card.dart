@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../screens/item_detail_screen.dart';
+import 'package:get/get.dart';
 
 class CategoryItemCard extends StatelessWidget {
   final int id;
@@ -14,7 +13,7 @@ class CategoryItemCard extends StatelessWidget {
   });
 
   void _selectItem(BuildContext context) {
-    Navigator.of(context).pushNamed(ItemDetailScreen.routeName, arguments: {
+    Get.toNamed('/item-detail', arguments: {
       'id': id,
       'category': category,
     });

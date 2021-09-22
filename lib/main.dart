@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import './screens/welcome_screen.dart';
-import './screens/categories_screen.dart';
 import './screens/category_items_screen.dart';
 import './screens/item_detail_screen.dart';
 
@@ -26,25 +26,25 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'SWAPI',
-      theme: ThemeData(
-        primarySwatch: MaterialColor(0xFFFCFDFD, whiteColor),
-        accentColor: Colors.amberAccent,
-        textTheme: TextTheme(
-          bodyText2: TextStyle(
-            color: Color.fromRGBO(252, 253, 253, 1),
+    return GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'SWAPI',
+        theme: ThemeData(
+          primarySwatch: MaterialColor(0xFFFCFDFD, whiteColor),
+          accentColor: Colors.amberAccent,
+          textTheme: TextTheme(
+            bodyText2: TextStyle(
+              color: Color.fromRGBO(252, 253, 253, 1),
+            ),
           ),
+          fontFamily: 'Poppins',
         ),
-        fontFamily: 'Poppins',
-      ),
-      home: WelcomeScreen(),
-      routes: {
-        CategoryScreen.routeName: (ctx) => CategoryScreen(),
-        CategoryItemsScreen.routeName: (ctx) => CategoryItemsScreen(),
-        ItemDetailScreen.routeName: (ctx) => ItemDetailScreen(),
-      },
-    );
+        initialRoute: '/',
+        getPages: [
+          GetPage(name: '/', page: () => WelcomeScreen()),
+          // GetPage(name: '/category', page: () => CategoryScreen()),
+          GetPage(name: '/category-items', page: () => CategoryItemsScreen()),
+          GetPage(name: '/item-detail', page: () => ItemDetailScreen()),
+        ]);
   }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../screens/category_items_screen.dart';
+import 'package:get/get.dart';
 
 class CategoryItem extends StatelessWidget {
   final String category;
@@ -10,7 +9,7 @@ class CategoryItem extends StatelessWidget {
   });
 
   void _selectCategory(BuildContext context) {
-    Navigator.of(context).pushNamed(CategoryItemsScreen.routeName, arguments: {
+    Get.toNamed('/category-items', arguments: {
       'category': category,
     });
   }
