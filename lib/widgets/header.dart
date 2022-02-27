@@ -13,7 +13,7 @@ class Header extends StatelessWidget {
         headerText,
         style: TextStyle(
           fontSize: 32,
-          color: Theme.of(context).accentColor,
+          color: Theme.of(context).colorScheme.secondary,
         ),
       ),
     );

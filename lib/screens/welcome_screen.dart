@@ -20,7 +20,7 @@ class WelcomeScreen extends StatelessWidget {
                     'SWAPI',
                     style: TextStyle(
                       fontSize: 48,
-                      color: Theme.of(context).accentColor,
+                      color: Theme.of(context).colorScheme.secondary,
                     ),
                   ),
                 ),
@@ -56,7 +56,10 @@ class WelcomeScreen extends StatelessWidget {
                 ),
                 child: Text(
                   'Next',
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Theme.of(context).primaryColor,
+                  ),
                 ),
               ),
               onPressed: () {

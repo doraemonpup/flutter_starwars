@@ -26,18 +26,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = ThemeData();
     return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'SWAPI',
         theme: ThemeData(
           primarySwatch: MaterialColor(0xFFFCFDFD, whiteColor),
-          accentColor: Colors.amberAccent,
+          // accentColor: Colors.amberAccent,
           textTheme: TextTheme(
             bodyText2: TextStyle(
               color: Color.fromRGBO(252, 253, 253, 1),
             ),
           ),
           fontFamily: 'Poppins',
+        ).copyWith(
+          colorScheme:
+              theme.colorScheme.copyWith(secondary: Colors.amberAccent),
         ),
         initialRoute: '/',
         getPages: [
