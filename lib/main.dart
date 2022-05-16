@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
     final ThemeData theme = ThemeData();
     return GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'SWAPI',
+        title: 'DarkSide',
         theme: ThemeData(
           primarySwatch: MaterialColor(0xFFFCFDFD, whiteColor),
           // accentColor: Colors.amberAccent,

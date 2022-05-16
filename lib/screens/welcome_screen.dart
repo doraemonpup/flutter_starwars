@@ -17,7 +17,7 @@ class WelcomeScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   child: Text(
-                    'SWAPI',
+                    'Starwars',
                     style: TextStyle(
                       fontSize: 48,
                       color: Theme.of(context).colorScheme.secondary,
