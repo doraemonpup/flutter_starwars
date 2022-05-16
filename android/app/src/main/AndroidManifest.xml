@@ -2,7 +2,7 @@
     package="com.example.flutter_starwars">
     <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="SWAPI"
+        android:label="DarkSide"
         android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
